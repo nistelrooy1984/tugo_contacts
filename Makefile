@@ -23,6 +23,21 @@ down:
 stop:
 	docker-compose stop
 
+db-migrate-up:
+	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" up
+	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" up
+	docker-compose run --rm app ./bin/rails db:environment:set RAILS_ENV=test
+
+db-migrate-down:
+	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" down
+	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" down
+
+db-drop-create:
+	docker-compose run --rm app ./bin/rails db:environment:set RAILS_ENV=development
+	docker-compose run --rm -e RAILS_ENV=development app bundle exec rake db:drop db:create
+
+reset: db-drop-create db-migrate-up
+
 bundle:
 	docker-compose run --rm app bundle install
 
@@ -41,5 +56,8 @@ update-pb:
 attach:
 	docker container attach $(docker-compose ps -q | head -n 1)
 
+bash:
+	docker-compose exec app /bin/bash
+
 usage:
-	@echo usage: [build, db-create, up, up-bridge, down, stop, bundle, console, rubocop-fix, rspec, update-pb, attach]
+	@echo usage: [build, db-create, up, up-bridge, down, stop, db-migrate-up, db-migrate-down, db-drop-create, reset, bundle, console, rubocop-fix, rspec, update-pb, attach, bash]
