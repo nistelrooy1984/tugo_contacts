@@ -24,13 +24,21 @@ stop:
 	docker-compose stop
 
 db-migrate-up:
-	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" up
-	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" up
+# For container is running on Linux(Ubuntu, CentOS)
+# 	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" up
+# 	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" up
+# For container is running on Windows or MacOS
+	scripts/db_migrate "postgres://host.docker.internal:5620/app_development?sslmode=disable&user=postgres" up
+	scripts/db_migrate "postgres://host.docker.internal:5620/app_test?sslmode=disable&user=postgres" up
 	docker-compose run --rm app ./bin/rails db:environment:set RAILS_ENV=test
 
 db-migrate-down:
-	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" down
-	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" down
+# For container is running on Linux(Ubuntu, CentOS)
+# 	scripts/db_migrate "postgres://localhost:5620/app_development?sslmode=disable&user=postgres" down
+# 	scripts/db_migrate "postgres://localhost:5620/app_test?sslmode=disable&user=postgres" down
+# For container is running on Windows or MacOS
+	scripts/db_migrate "postgres://host.docker.internal:5620/app_development?sslmode=disable&user=postgres" down
+	scripts/db_migrate "postgres://host.docker.internal:5620/app_test?sslmode=disable&user=postgres" down
 
 db-drop-create:
 	docker-compose run --rm app ./bin/rails db:environment:set RAILS_ENV=development
