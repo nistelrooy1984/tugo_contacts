@@ -44,7 +44,7 @@ COMMENT ON COLUMN contacts.lastname IS 'Last Name';
 
 COMMENT ON COLUMN contacts.email IS 'Email';
 
-COMMENT ON COLUMN contacts.email IS 'Phone';
+COMMENT ON COLUMN contacts.phone IS 'Phone';
 
 COMMENT ON COLUMN contacts.title IS 'Title';
 
