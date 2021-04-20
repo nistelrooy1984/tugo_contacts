@@ -64,6 +64,6 @@ COMMENT ON COLUMN contacts.source IS 'Source';
 
 COMMENT ON COLUMN contacts.description IS 'Description Details';
 
-COMMENT ON COLUMN employees.created_at IS 'Created At';
+COMMENT ON COLUMN contacts.created_at IS 'Created At';
 
-COMMENT ON COLUMN employees.updated_at IS 'Updated At';
+COMMENT ON COLUMN contacts.updated_at IS 'Updated At';
