@@ -1,9 +1,9 @@
 CREATE TABLE contacts (
   id bigserial PRIMARY KEY,
 
-  firstname varchar NULL,
+  first_name varchar NULL,
 
-  lastname varchar NOT NULL,
+  last_name varchar NOT NULL,
 
   email varchar NULL,
 
@@ -38,9 +38,9 @@ COMMENT ON TABLE contacts IS 'Contacts';
 
 COMMENT ON COLUMN contacts.id IS 'ID';
 
-COMMENT ON COLUMN contacts.firstname IS 'First Name';
+COMMENT ON COLUMN contacts.first_name IS 'First Name';
 
-COMMENT ON COLUMN contacts.lastname IS 'Last Name';
+COMMENT ON COLUMN contacts.last_name IS 'Last Name';
 
 COMMENT ON COLUMN contacts.email IS 'Email';
 

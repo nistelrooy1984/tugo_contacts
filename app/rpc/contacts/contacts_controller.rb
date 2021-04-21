@@ -11,7 +11,6 @@ module Contacts
       service.run!
       presenter = Contacts::UpsertContactPresenter.new(service.result)
       presenter.generate_response
-      presenter.result
     end
   end
 end

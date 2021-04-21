@@ -26,7 +26,8 @@ module Contacts
       contact.source = @request_params.source
       contact.description = @request_params.description
 
-      @result = contact.save
+      contact.save
+      @result = contact
     end
   end
 end

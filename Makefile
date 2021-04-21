@@ -49,6 +49,9 @@ reset: db-drop-create db-migrate-up
 bundle:
 	docker-compose run --rm app bundle install
 
+bundle-update:
+	docker-compose run --rm app bundle update
+
 console:
 	docker-compose run --rm app bundle exec rails console
 
@@ -68,4 +71,4 @@ bash:
 	docker-compose exec app /bin/bash
 
 usage:
-	@echo usage: [build, db-create, up, up-bridge, down, stop, db-migrate-up, db-migrate-down, db-drop-create, reset, bundle, console, rubocop-fix, rspec, update-pb, attach, bash]
+	@echo usage: [build, db-create, up, up-bridge, down, stop, db-migrate-up, db-migrate-down, db-drop-create, reset, bundle, bundle-update, console, rubocop-fix, rspec, update-pb, attach, bash]

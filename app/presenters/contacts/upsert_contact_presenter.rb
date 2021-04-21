@@ -7,7 +7,7 @@ module Contacts
     end
 
     def generate_response
-      contact = Tugo::Contacts::V1::UpsertContactResponse.new(
+      contact = Tugo::Contacts::V1::Contact.new(
         id: @contact.id,
         first_name: @contact.first_name,
         last_name: @contact.last_name,
