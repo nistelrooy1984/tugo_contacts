@@ -8,3 +8,6 @@ fi
 
 migrate -path db/migrate_sql -database $1 $2 $3
 docker-compose run --rm -T app bin/rails db:schema:dump
+
+
+
