@@ -22,6 +22,13 @@ module Contacts
       presenter.generate_response
     end
 
+    def get_contacts
+      service = Contacts::GetContactsService.new(nil)
+      service.run!
+      presenter = Contacts::ContactsPresenter.new(service.result)
+      presenter.generate_response
+    end
+
     def upsert_contact
       request_params = Contacts::UpsertContactRequestParams.new(request.message)
       request_params.validate!

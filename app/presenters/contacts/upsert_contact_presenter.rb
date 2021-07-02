@@ -7,27 +7,25 @@ module Contacts
     end
 
     def generate_response
-      contact = Tugo::Contacts::V1::Contact.new(
-        id: @contact.id,
-        first_name: @contact.first_name,
-        last_name: @contact.last_name,
-        email: @contact.email,
-        phone: @contact.phone,
-        title: @contact.title,
-        creator_id: @contact.creator_id,
-        owner_id: @contact.owner_id,
-        modified_by_id: @contact.modified_by_id,
-        master_leadsource_id: @contact.master_leadsource_id,
-        is_converted_from_lead: @contact.is_converted_from_lead,
-        is_do_not_call: @contact.is_do_not_call,
-        source: @contact.source,
-        description: @contact.description,
-        created_at: @contact.created_at.to_s,
-        updated_at: @contact.updated_at.to_s
-      )
-
       Tugo::Contacts::V1::UpsertContactResponse.new(
-        contact: contact
+        contact: Tugo::Contacts::V1::Contact.new(
+          id: proto_int64(@contact.id),
+          first_name: proto_string(@contact.first_name),
+          last_name: proto_string(@contact.last_name),
+          email: proto_string(@contact.email),
+          phone: proto_string(@contact.phone),
+          title: proto_string(@contact.title),
+          creator_id: proto_int64(@contact.creator_id),
+          owner_id: proto_int64(@contact.owner_id),
+          modified_by_id: proto_int64(@contact.modified_by_id),
+          master_leadsource_id: proto_int64(@contact.master_leadsource_id),
+          is_converted_from_lead: proto_bool(@contact.is_converted_from_lead),
+          is_do_not_call: proto_bool(@contact.is_do_not_call),
+          source: proto_string(@contact.source),
+          description: proto_string(@contact.description),
+          created_at: proto_string(@contact.created_at),
+          updated_at: proto_string(@contact.updated_at)
+        )
       )
     end
   end
