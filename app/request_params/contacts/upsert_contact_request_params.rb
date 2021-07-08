@@ -19,20 +19,20 @@ module Contacts
 
     def initialize(params)
       super(
-        id: params.contact.id.positive? ? params.contact.id : nil,
-        first_name: params.contact.first_name,
-        last_name: params.contact.last_name,
-        email: params.contact.email,
-        phone: params.contact.phone,
-        title: params.contact.title,
-        creator_id: params.contact.creator_id,
-        owner_id: params.contact.owner_id,
-        modified_by_id: params.contact.modified_by_id,
-        master_leadsource_id: params.contact.master_leadsource_id,
-        is_converted_from_lead: params.contact.is_converted_from_lead,
-        is_do_not_call: params.contact.is_do_not_call,
-        source: params.contact.source,
-        description: params.contact.description
+        id: params.contact.id&.value,
+        first_name: params.contact.first_name&.value,
+        last_name: params.contact.last_name&.value,
+        email: params.contact.email&.value,
+        phone: params.contact.phone&.value,
+        title: params.contact.title&.value,
+        creator_id: params.contact.creator_id&.value,
+        owner_id: params.contact.owner_id&.value,
+        modified_by_id: params.contact.modified_by_id&.value,
+        master_leadsource_id: params.contact.master_leadsource_id&.value,
+        is_converted_from_lead: params.contact.is_converted_from_lead&.value,
+        is_do_not_call: params.contact.is_do_not_call&.value,
+        source: params.contact.source&.value,
+        description: params.contact.description&.value
       )
     end
   end
