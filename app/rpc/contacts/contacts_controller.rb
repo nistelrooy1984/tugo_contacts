@@ -9,7 +9,7 @@ module Contacts
       request_params.validate!
       service = Contacts::UpsertContactService.new(request_params, nil)
       service.run!
-      presenter = Contacts::UpsertContactPresenter.new(service.result)
+      presenter = Contacts::ContactPresenter.new(service.result)
       presenter.generate_response
     end
 
