@@ -12,4 +12,3 @@ module ErrorHandler
     HANDLER_MAP[exception.class]&.new(request, exception)
   end
 end
-  
