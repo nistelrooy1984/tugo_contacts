@@ -29,5 +29,12 @@ module Contacts
       presenter = Contacts::ContactsPresenter.new(service.results)
       presenter.generate_response
     end
+
+    def get_contacts
+      service = Contacts::GetContactsService.new(nil)
+      service.run!
+      presenter = Contacts::ContactsPresenter.new(service.results)
+      presenter.generate_response
+    end
   end
 end
