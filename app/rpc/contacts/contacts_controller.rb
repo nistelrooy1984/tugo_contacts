@@ -4,6 +4,13 @@ module Contacts
   class ContactsController < ::Gruf::Controllers::Base
     bind ::Tugo::Contacts::V1::ContactService::Service
 
+    def get_contacts
+      service = Contacts::GetContactsService.new(nil)
+      service.run!
+      presenter = Contacts::ContactsPresenter.new(service.results)
+      presenter.generate_response
+    end
+
     def get_contact_by_id
       request_params = Contacts::GetContactByIdRequestParams.new(request.message)
       request_params.validate!

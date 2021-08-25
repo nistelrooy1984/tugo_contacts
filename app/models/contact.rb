@@ -20,7 +20,7 @@
 #  description(Description Details)
 #  created_at(Created At)
 #  updated_at(Updated At)
-# 
+#
 # Indexes
 #
 # Foreign Keys

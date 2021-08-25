@@ -9,7 +9,6 @@ module Tugo
     module V1
       module EmployeeService
         class Service
-
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode

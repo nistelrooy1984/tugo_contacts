@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 module Contacts
-  class GetContactsByOwnerIdService
+  class GetContactsService
     include ActiveModel::Model
 
     attr_reader :results
 
-    def initialize(request_params, auth_header)
-      @request_params = request_params
+    def initialize(auth_header)
       @auth_header = auth_header
     end
 
     def run!
-      contacts = Contact.where(owner_id: @request_params.owner_id)
+      contacts = Contact.all
 
       raise ActiveRecord::RecordNotFound, I18n.t('errors.messages.contact.record_not_found') if contacts.blank?
 

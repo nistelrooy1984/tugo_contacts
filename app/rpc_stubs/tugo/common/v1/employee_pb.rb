@@ -5,11 +5,11 @@ require 'google/protobuf'
 
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_file("tugo/common/v1/employee.proto", :syntax => :proto3) do
-    add_message "tugo.common.v1.EmployeeListResponse" do
-      repeated :employees, :message, 1, "tugo.common.v1.Employee"
+  add_file('tugo/common/v1/employee.proto', syntax: :proto3) do
+    add_message 'tugo.common.v1.EmployeeListResponse' do
+      repeated :employees, :message, 1, 'tugo.common.v1.Employee'
     end
-    add_message "tugo.common.v1.Employee" do
+    add_message 'tugo.common.v1.Employee' do
       optional :id, :int64, 1
       optional :employee_number, :string, 2
       optional :last_name, :string, 3
@@ -18,10 +18,10 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :email, :string, 6
       optional :gender, :int32, 7
     end
-    add_message "tugo.common.v1.EmployeeNumber" do
+    add_message 'tugo.common.v1.EmployeeNumber' do
       optional :employee_number, :string, 1
     end
-    add_message "tugo.common.v1.EmployeeId" do
+    add_message 'tugo.common.v1.EmployeeId' do
       optional :employee_id, :int64, 1
     end
   end
@@ -30,10 +30,10 @@ end
 module Tugo
   module Common
     module V1
-      EmployeeListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.EmployeeListResponse").msgclass
-      Employee = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.Employee").msgclass
-      EmployeeNumber = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.EmployeeNumber").msgclass
-      EmployeeId = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.EmployeeId").msgclass
+      EmployeeListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.common.v1.EmployeeListResponse').msgclass
+      Employee = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.common.v1.Employee').msgclass
+      EmployeeNumber = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.common.v1.EmployeeNumber').msgclass
+      EmployeeId = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.common.v1.EmployeeId').msgclass
     end
   end
 end

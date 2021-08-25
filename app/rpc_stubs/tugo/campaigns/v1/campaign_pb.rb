@@ -5,11 +5,11 @@ require 'google/protobuf'
 
 require 'google/protobuf/empty_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_file("tugo/campaigns/v1/campaign.proto", :syntax => :proto3) do
-    add_message "tugo.campaigns.v1.CampaignListResponse" do
-      repeated :campaigns, :message, 1, "tugo.campaigns.v1.Campaign"
+  add_file('tugo/campaigns/v1/campaign.proto', syntax: :proto3) do
+    add_message 'tugo.campaigns.v1.CampaignListResponse' do
+      repeated :campaigns, :message, 1, 'tugo.campaigns.v1.Campaign'
     end
-    add_message "tugo.campaigns.v1.Campaign" do
+    add_message 'tugo.campaigns.v1.Campaign' do
       optional :id, :int64, 1
       optional :campaign_name, :string, 2
       optional :campaign_type, :int32, 3
@@ -23,8 +23,8 @@ end
 module Tugo
   module Campaigns
     module V1
-      CampaignListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.campaigns.v1.CampaignListResponse").msgclass
-      Campaign = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.campaigns.v1.Campaign").msgclass
+      CampaignListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.CampaignListResponse').msgclass
+      Campaign = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.Campaign').msgclass
     end
   end
 end

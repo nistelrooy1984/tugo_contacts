@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Contacts
   class ContactsPresenter < PresenterBase
     def initialize(contacts)
