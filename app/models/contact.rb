@@ -26,4 +26,5 @@
 # Foreign Keys
 #
 class Contact < ApplicationRecord
+  scope :where_by_subordinate_users, ->(user_ids) { where(owner_id: user_ids) if user_ids.present? }
 end
