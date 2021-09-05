@@ -1,0 +1,13 @@
+id,is_usable,name,order
+1,true,Cold Call,1
+2,true,Existing Customer,2
+3,true,Self Generated,3
+4,true,Employee,4
+5,true,Partner,5
+6,true,Public Relations,6
+7,true,Direct Mail,7
+8,true,Conference,8
+9,true,Trade Show,9
+10,true,Web Site,10
+11,true,Word of mouth,11
+12,true,Other,12

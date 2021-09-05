@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_203000) do
+ActiveRecord::Schema.define(version: 2021_09_04_171301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,26 @@ ActiveRecord::Schema.define(version: 2021_04_19_203000) do
     t.bigint "creator_id", comment: "Created By"
     t.bigint "owner_id", comment: "Assigned To"
     t.bigint "modified_by_id", comment: "Modified By"
-    t.bigint "master_leadsource_id", comment: "Lead Source"
     t.boolean "is_converted_from_lead", comment: "Is Converted From Lead"
     t.boolean "is_do_not_call", comment: "Do Not Call"
-    t.string "source", comment: "Source"
     t.string "description", comment: "Description Details"
+    t.datetime "created_at", null: false, comment: "Created At"
+    t.datetime "updated_at", null: false, comment: "Updated At"
+    t.string "salutation", comment: "Salutation"
+    t.bigint "master_lead_source_id", comment: "Lead Source"
+    t.string "birthday", comment: "Birthday"
+    t.bigint "master_country_id", comment: "Country"
+    t.bigint "master_province_id", comment: "Province"
+    t.bigint "master_district_id", comment: "District"
+    t.bigint "master_ward_id", comment: "Ward"
+    t.bigint "street", comment: "Street"
+    t.bigint "delete_flag", comment: "Delete Flag"
+  end
+
+  create_table "master_lead_sources", id: { comment: "ID" }, comment: "Lead Source", force: :cascade do |t|
+    t.string "name", null: false, comment: "Name"
+    t.boolean "is_usable", null: false, comment: "Is Usable"
+    t.integer "order", null: false, comment: "Order"
     t.datetime "created_at", null: false, comment: "Created At"
     t.datetime "updated_at", null: false, comment: "Updated At"
   end

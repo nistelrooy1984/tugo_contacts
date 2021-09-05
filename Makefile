@@ -67,6 +67,9 @@ update-pb:
 attach:
 	docker container attach $(docker-compose ps -q | head -n 1)
 
+seed_fu:
+	docker-compose run --rm app bin/rails db:seed_fu
+
 bash:
 	docker-compose exec app /bin/bash
 

@@ -11,6 +11,7 @@ module Contacts
         contacts: @contacts&.each_with_object([]) do |contact, arr|
           arr << Tugo::Contacts::V1::Contact.new(
             id: proto_int64(contact.id),
+            salutation: proto_string(contact.salutation),
             first_name: proto_string(contact.first_name),
             last_name: proto_string(contact.last_name),
             email: proto_string(contact.email),
@@ -19,11 +20,17 @@ module Contacts
             creator_id: proto_int64(contact.creator_id),
             owner_id: proto_int64(contact.owner_id),
             modified_by_id: proto_int64(contact.modified_by_id),
-            master_leadsource_id: proto_int64(contact.master_leadsource_id),
+            master_lead_source_id: proto_int64(contact.master_lead_source_id),
             is_converted_from_lead: proto_bool(contact.is_converted_from_lead),
             is_do_not_call: proto_bool(contact.is_do_not_call),
-            source: proto_string(contact.source),
+            birthday: proto_string(contact.birthday),
+            master_country_id: proto_int64(contact.master_country_id),
+            master_province_id: proto_int64(contact.master_province_id),
+            master_district_id: proto_int64(contact.master_district_id),
+            master_ward_id: proto_int64(contact.master_ward_id),
+            street: proto_string(contact.street),
             description: proto_string(contact.description),
+            delete_flag: proto_int64(contact.delete_flag),
             created_at: proto_string(contact.created_at),
             updated_at: proto_string(contact.updated_at)
           )
